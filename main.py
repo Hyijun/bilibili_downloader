@@ -40,6 +40,12 @@ def download_bilibili_video(url, video_url):
     return req.get(url, headers=header).content     # 返回数据流
 
 
+def get_video_name(html):
+    start = html.find('<title data-vue-meta="true">') + 28
+    html = html[start:]
+    return html[:html.find('_哔哩哔哩 ')]
+
+
 def main():
     print('\t欢迎使用：当前程序处于测试阶段\n\t版本号[alpha 1.0.0]')
     print('############################################################')
@@ -66,5 +72,9 @@ if __name__ == '__main__':
     }
     url = 'https://www.bilibili.com/video/' + input('请输入AV号')
     print('一')
-    print(req.get(url, headers=headers).text)
+    html = req.get(url, headers=headers).text
+    print(html)
+    print('######################################################################')
+    print(get_video_name(html))
+    print('end')
     time.sleep(1000)
