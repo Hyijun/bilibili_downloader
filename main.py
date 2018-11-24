@@ -57,5 +57,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    url = 'https://www.bilibili.com/video/' + input('请输入AV号')
+    print('一')
+    print(req.get(url).text)
     time.sleep(1000)
