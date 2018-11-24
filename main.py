@@ -58,7 +58,13 @@ def main():
 
 if __name__ == '__main__':
     # main()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0',
+        'Cookie': 'buvid3=1F524FE2-8022-4945-A0AF-62ECB45FAD6E163017infoc; LIVE_BUVID=AUTO7215339028787612; '
+                  ' im_notify_type_1=1',
+        'Host': 'www.bilibili.com'
+    }
     url = 'https://www.bilibili.com/video/' + input('请输入AV号')
     print('一')
-    print(req.get(url).text)
+    print(req.get(url, headers=headers).text)
     time.sleep(1000)
